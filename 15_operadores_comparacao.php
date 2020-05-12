@@ -11,5 +11,5 @@
  * >
  * <=
  * >=
- * <=>
+ * <=> // comparacoes combinadas
  */
