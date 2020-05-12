@@ -11,26 +11,34 @@
 
   <?php
   if (isset($_POST['enviar-formulario'])) :
-    $formatosPermitidos = array("png", "jpeg", "jpg", "gif");
-    $extensao = pathinfo($_FILES['arquivo']['name'], PATHINFO_EXTENSION);
+    $formatosPermitidos = array("png", "jpeg", "jpg", "gif", "pdf");
+    $quantidadeArquivos = count($_FILES['arquivo']['name']);
+    $contador = 0;
 
-    if (!in_array($extensao, $formatosPermitidos)) :
-      print "Formato ${extensao} inserido é inválido";
-    else :
-      $pasta = "arquivos/";
-      $temporario = $_FILES['arquivo']['tmp_name'];
-      $novoNome = uniqid() . ".$extensao";
+    while ($contador < $quantidadeArquivos) :
 
-      if (!move_uploaded_file($temporario, $pasta . $novoNome)) :
-        print "Upload não realizado com sucesso...";
+      $extensao = pathinfo($_FILES['arquivo']['name'][$contador], PATHINFO_EXTENSION);
+
+      if (!in_array($extensao, $formatosPermitidos)) :
+        print "Formato ${extensao} inserido é inválido";
+
       else :
-        print "Upload realizado com sucesso!";
+        $pasta = "arquivos/";
+        $temporario = $_FILES['arquivo']['tmp_name'][$contador];
+        $novoNome = uniqid() . ".$extensao";
+
+        if (!move_uploaded_file($temporario, $pasta . $novoNome)) :
+          print "Upload não realizado com sucesso...<br/>";
+        else :
+          print "Upload realizado com sucesso!<br/>";
+        endif;
       endif;
-    endif;
+      $contador++;
+    endwhile;
   endif;
   ?>
   <form action="<?php print $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
-    <input type="file" name="arquivo"> <br>
+    <input type="file" name="arquivo[]" multiple> <br>
     <button type="submit" name="enviar-formulario">Enviar Arquivo</button>
   </form>
 </body>
