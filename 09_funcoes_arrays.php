@@ -20,6 +20,9 @@
 $carros = array("primaário" => "Veloster", "auxiliar" => "JeepCompass");
 $keys = array_keys($carros);
 
+$nomes1 = ["Leandro", "Thaísa"];
+$nomes2 = ["Beatriz"];
+
 print var_dump(is_array($carros));
 print "<br/>";
 
@@ -27,3 +30,16 @@ print var_dump(in_array("Valoster", $carros));
 print "<br/>";
 
 print_r($keys);
+print "<br/>";
+
+$values = array_values($carros);
+print_r($values);
+print "<br/>";
+
+$arrayNomes = array_merge($nomes1, $nomes2);
+print_r($arrayNomes);
+print "<br/>";
+
+array_pop($carros);
+print_r($carros);
+print "<br/>";
