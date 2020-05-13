@@ -9,6 +9,6 @@ $port = 8889;
 
 $connect = mysqli_connect($host, $user, $password, $db_name, $port);
 
-if (!mysqli_connect_errno()) :
-  print "Conexão realizada com sucesso!";
+if (mysqli_connect_errno()) :
+  print "Conexão não realizada com sucesso.";
 endif;
