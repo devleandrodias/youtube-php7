@@ -50,7 +50,7 @@ include_once 'includes/header.php';
       </tbody>
     </table>
     <br>
-    <button type="button" class="btn">Adicionar Cliente</button>
+    <a href="adicionar.php" class="btn">Adicionar Cliente</a>
   </div>
 </div>
 
