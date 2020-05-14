@@ -3,15 +3,13 @@
   session_start();
 
   if (isset($_POST['btn-cadastrar'])) :
-    $nome = $_POST['nome'];
-    $sobrenome = $_POST['sobrenome'];
-    $email = $_POST['email'];
-    $idade = $_POST['idade'];
+    $nome = mysqli_escape_string($connect, $_POST['nome']);
+    $sobrenome = mysqli_escape_string($connect, $_POST['sobrenome']);
+    $email = mysqli_escape_string($connect, $_POST['email']);
+    $idade = mysqli_escape_string($connect, $_POST['idade']);
 
-    $sql = "INSERT INTO `crud`.`clientes` (`nome`, `sobrenome`, `email`, `idade`)
+    $sql = "INSERT INTO `clientes` (`nome`, `sobrenome`, `email`, `idade`)
       VALUES ('$nome','$sobrenome','$email','$idade')";
-
-    print $sql;
 
     if (mysqli_query($connect, $sql)) :
       $_SESSION['mensagem'] = 'Novo cliente cadastrado com sucesso!';

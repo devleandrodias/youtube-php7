@@ -1,6 +1,4 @@
-<?php
-include_once '../includes/header.php';
-?>
+<?php include_once '../includes/header.php'; ?>
 
 <div class="row">
   <div class="col s12 m6 push-m3">
@@ -23,11 +21,9 @@ include_once '../includes/header.php';
         <input type="number" name="idade" id="idade">
       </div>
       <button type="submit" name="btn-cadastrar" class="btn">Cadastrar</button>
-      <a href="index.php" type="submit" class="btn green">Lista de Cliente</a>
+      <a href="../index.php" type="submit" class="btn green">Lista de Cliente</a>
     </form>
   </div>
 </div>
 
-<?php
-include_once '../includes/footer.php';
-?>
+<?php include_once '../includes/footer.php'; ?>
