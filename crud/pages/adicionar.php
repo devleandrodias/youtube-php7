@@ -1,11 +1,11 @@
 <?php
-include_once 'includes/header.php';
+include_once '../includes/header.php';
 ?>
 
 <div class="row">
   <div class="col s12 m6 push-m3">
     <h3 class="light">Novo Cliente</h3>
-    <form action="php_action/create.php" method="POST">
+    <form action="../php_action/create.php" method="POST">
       <div class="input-field col s12">
         <label for="nome">Nome</label>
         <input type="text" name="nome" id="nome">
@@ -29,5 +29,5 @@ include_once 'includes/header.php';
 </div>
 
 <?php
-include_once 'includes/footer.php';
+include_once '../includes/footer.php';
 ?>

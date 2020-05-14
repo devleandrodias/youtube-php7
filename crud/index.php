@@ -36,7 +36,7 @@ include_once 'connection/db_connect.php';
       </tbody>
     </table>
     <br>
-    <a href="adicionar.php" class="btn">Adicionar Cliente</a>
+    <a href="./pages/adicionar.php" class="btn">Adicionar Cliente</a>
   </div>
 </div>
 
