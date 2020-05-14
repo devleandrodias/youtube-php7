@@ -1,5 +1,7 @@
 <?php
+include_once 'messages/mensagens.php';
 include_once 'includes/header.php';
+include_once 'connection/db_connect.php';
 ?>
 
 <div class="row">
@@ -15,38 +17,22 @@ include_once 'includes/header.php';
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Leandro</td>
-          <td>Dias</td>
-          <td>leandrodbdias@gmail.com</td>
-          <td>19</td>
-          <td><button type="button" class="btn-floating orange"><i class="material-icons">edit</i></button></td>
-          <td><button type="button" class="btn-floating red"><i class="material-icons">delete</i></button></td>
-        </tr>
-        <tr>
-          <td>Leandro</td>
-          <td>Dias</td>
-          <td>leandrodbdias@gmail.com</td>
-          <td>19</td>
-          <td><button type="button" class="btn-floating orange"><i class="material-icons">edit</i></button></td>
-          <td><button type="button" class="btn-floating red"><i class="material-icons">delete</i></button></td>
-        </tr>
-        <tr>
-          <td>Leandro</td>
-          <td>Dias</td>
-          <td>leandrodbdias@gmail.com</td>
-          <td>19</td>
-          <td><button type="button" class="btn-floating orange"><i class="material-icons">edit</i></button></td>
-          <td><button type="button" class="btn-floating red"><i class="material-icons">delete</i></button></td>
-        </tr>
-        <tr>
-          <td>Leandro</td>
-          <td>Dias</td>
-          <td>leandrodbdias@gmail.com</td>
-          <td>19</td>
-          <td><button type="button" class="btn-floating orange"><i class="material-icons">edit</i></button></td>
-          <td><button type="button" class="btn-floating red"><i class="material-icons">delete</i></button></td>
-        </tr>
+        <?php
+        $sql = "SELECT * FROM clientes";
+        $resultado = mysqli_query($connect, $sql);
+
+        while ($dados = mysqli_fetch_array($resultado)) : ?>
+
+          <tr>
+            <td><?php print $dados['nome'] ?></td>
+            <td><?php print $dados['sobrenome'] ?></td>
+            <td><?php print $dados['email'] ?></td>
+            <td><?php print $dados['idade'] ?></td>
+            <td><button type="button" class="btn-floating orange"><i class="material-icons">edit</i></button></td>
+            <td><button type="button" class="btn-floating red"><i class="material-icons">delete</i></button></td>
+          </tr>
+
+        <?php endwhile; ?>
       </tbody>
     </table>
     <br>
@@ -54,6 +40,4 @@ include_once 'includes/header.php';
   </div>
 </div>
 
-<?php
-include_once 'includes/footer.php';
-?>
+<?php include_once 'includes/footer.php'; ?>
